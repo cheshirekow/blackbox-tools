@@ -34,6 +34,9 @@ add_executable(blackbox_decoder
                src/stats.c)
 target_link_libraries(blackbox_decoder ${COMMON_LIBS})
 
+install(TARGETS blackbox_decoder
+        RUNTIME DESTINATION bin)
+
 add_executable(encoder_testbed
                src/encoder_testbed.c
                src/encoder_testbed_io.c)
@@ -53,6 +56,8 @@ if((freetype2_FOUND) AND (cairo_FOUND))
   target_link_libraries(blackbox_render ${COMMON_LIBS}
                                         ${cairo_LDFLAGS}
                                         ${freetype2_LDFLAGS})
+  install(TARGETS blackbox_render
+          RUNTIME DESTINATION bin)
 endif()
 
 
